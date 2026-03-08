@@ -6,6 +6,10 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ColorColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\IconColumn;
 
 class PostsTable
 {
@@ -13,7 +17,17 @@ class PostsTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('title'),
+                TextColumn::make('slug'),
+                TextColumn::make('category.name'),
+                ColorColumn::make('color'),
+                IconColumn::make('published')
+                ->boolean(),
+             ImageColumn::make('image')
+            ->disk('public')
+            ->visibility('public')
+            ->height(50)
+            ->square()
             ])
             ->filters([
                 //
@@ -24,6 +38,7 @@ class PostsTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
+            
                 ]),
             ]);
     }
