@@ -19,7 +19,7 @@ class ProductForm
         return $schema
             ->components([
                 Wizard::make([
-
+                    
                     Step::make('Product Info')
                         ->icon('heroicon-o-information-circle')
                         ->description('Isi Informasi Produk')

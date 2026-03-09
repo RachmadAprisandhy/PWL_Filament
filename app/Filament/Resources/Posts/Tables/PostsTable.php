@@ -17,18 +17,26 @@ class PostsTable
     {
         return $table
             ->columns([
-                TextColumn::make('title'),
-                TextColumn::make('slug'),
-                TextColumn::make('category.name'),
+                TextColumn::make('title')
+                    ->sortable(),
+                TextColumn::make('slug')
+                    ->sortable(),
+                TextColumn::make('category.name')
+                    ->sortable(),
                 ColorColumn::make('color'),
+                TextColumn::make('created_at')
+                    ->label('Created At')
+                    ->dateTime('d M Y H:i')
+                    ->sortable(),
                 IconColumn::make('published')
-                ->boolean(),
-             ImageColumn::make('image')
-            ->disk('public')
-            ->visibility('public')
-            ->height(50)
-            ->square()
+                    ->boolean(),
+                ImageColumn::make('image')
+                    ->disk('public')
+                    ->visibility('public')
+                    ->height(50)
+                    ->square(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])
@@ -38,7 +46,6 @@ class PostsTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
-            
                 ]),
             ]);
     }
