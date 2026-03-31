@@ -51,6 +51,11 @@ class PostsRelationManager extends RelationManager
             ->actions([
                 \Filament\Actions\EditAction::make(),
                 \Filament\Actions\DeleteAction::make(),
+                \Filament\Actions\Action::make('dissociate')
+                ->label('Dissociate')
+                ->action(fn ($record) => $record->update(['category_id' => null]))
+                ->requiresConfirmation()
+                ->color('warning'),
             ]);
     }
 }
