@@ -44,7 +44,7 @@ class PostsTable
                     ->label('Created At')
                     ->dateTime('d M Y H:i')
                     ->sortable(),
-                TextColumn::make('tags')
+                TextColumn::make('tags.name')
                     ->label('tags')
                     ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make('published')

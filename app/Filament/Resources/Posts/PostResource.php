@@ -7,6 +7,7 @@ use App\Filament\Resources\Posts\Pages\EditPost;
 use App\Filament\Resources\Posts\Pages\ListPosts;
 use App\Filament\Resources\Posts\Schemas\PostForm;
 use App\Filament\Resources\Posts\Tables\PostsTable;
+use App\Filament\Resources\Posts\RelationManagers\TagsRelationManager;
 use App\Models\Post;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -35,7 +36,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+           TagsRelationManager::class,
         ];
     }
 
