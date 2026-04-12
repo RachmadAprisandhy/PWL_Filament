@@ -1,11 +1,89 @@
 @import 'tailwindcss';
 
+/* Source (WAJIB biar semua class kebaca) */
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/filament/**/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+/* ===================== */
+/* 🌑 BASE (GLOBAL) */
+/* ===================== */
+@layer base {
+    body {
+        @apply bg-zinc-800 text-zinc-100;
+    }
+
+    .fi-body {
+        @apply bg-zinc-800;
+    }
+
+    .fi-main {
+        @apply bg-zinc-800;
+    }
+}
+
+/* ===================== */
+/* 🧱 COMPONENTS */
+/* ===================== */
+@layer components {
+
+    /* Table container (glass effect) */
+    .fi-ta {
+        @apply bg-zinc-800/60 backdrop-blur-xl rounded-2xl shadow-xl border border-zinc-700;
+    }
+
+    /* Table row hover */
+    .fi-ta-row {
+        @apply transition duration-200 hover:bg-zinc-700/50;
+    }
+
+    /* Sidebar */
+    .fi-sidebar {
+        @apply bg-zinc-950/80 backdrop-blur border-r border-zinc-800;
+    }
+
+    /* Topbar */
+    .fi-topbar {
+        @apply bg-zinc-900/80 backdrop-blur border-b border-zinc-800;
+    }
+
+    /* Card / panel (biar konsisten semua) */
+    .fi-section {
+        @apply bg-zinc-800/60 backdrop-blur rounded-2xl border border-zinc-700 shadow-lg;
+    }
+
+    /* Button feel */
+    .fi-btn {
+        @apply transition duration-200;
+    }
+
+    .fi-btn:hover {
+        @apply scale-[1.02];
+    }
+}
+
+/* ===================== */
+/* 🌈 UTILITIES */
+/* ===================== */
+@layer utilities {
+
+    /* Gradient primary (buat tombol biar keren) */
+    .gradient-primary {
+        @apply bg-gradient-to-r from-indigo-500 to-purple-500 text-white;
+    }
+
+    /* Text glow halus */
+    .text-glow {
+        text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    }
+}
+
+/* ===================== */
+/* 🔤 THEME */
+/* ===================== */
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
